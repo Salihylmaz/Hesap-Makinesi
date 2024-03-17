@@ -55,7 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("0");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("0");
+                }
                 updateDisplay();
 
             }
@@ -66,7 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("1");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("1");
+                }
                 updateDisplay();
 
             }
@@ -76,7 +84,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("2");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("2");
+                }
                 updateDisplay();
 
             }
@@ -87,7 +99,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("3");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("3");
+                }
                 updateDisplay();
 
             }
@@ -97,7 +113,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("4");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("4");
+                }
                 updateDisplay();
 
             }
@@ -108,7 +128,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("5");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("5");
+                }
                 updateDisplay();
 
 
@@ -119,7 +143,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("6");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("6");
+                }
                 updateDisplay();
 
             }
@@ -130,7 +158,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("7");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("7");
+                }
                 updateDisplay();
 
             }
@@ -140,7 +172,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("8");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("8");
+                }
                 updateDisplay();
 
             }
@@ -151,9 +187,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("9");
+                if(input.toString().equals("0")){
+                    input = new StringBuilder(buttonText);
+                }else{
+                    input.append("9");
+                }
                 updateDisplay();
-
             }
         });
 
@@ -162,7 +201,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("%");
+                if(input.toString().endsWith("%")){
+
+                }else{
+                    input.append("%");
+                }
                 updateDisplay();
             }
         });
@@ -172,7 +215,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("+");
+                if(input.toString().endsWith("+")){
+
+                } else{
+                    input.append("+");
+                }
                 updateDisplay();
             }
         });
@@ -181,7 +228,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("x");
+                if(input.toString().endsWith("x")){
+
+                }
+                else if (input.length()==0) {
+                    return;
+                }else{
+                    input.append("x");
+                }
                 updateDisplay();
 
             }
@@ -191,7 +245,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("-");
+                if(input.toString().endsWith("-")){
+
+                }
+                else{
+                    input.append("-");
+                }
                 updateDisplay();
 
             }
@@ -201,11 +260,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Button button  = (Button) v;
                 String buttonText = button.getText().toString();
-                input.append("/");
+                if(input.toString().endsWith("/")){
+
+                } else if (input.length()==0) {
+                    return;
+                }else {
+                    input.append("/");
+                }
                 updateDisplay();
 
             }
         });
+
+
+
+        sil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button button  = (Button) v;
+                String buttonText = button.getText().toString();
+                if (input.length()==0){
+                    return;
+                }
+                else if (input.length()==1) {
+                    input = new StringBuilder("0");
+                }
+                else{
+                    input = new StringBuilder(input.substring(0, input.length() - 1));
+                }
+                updateDisplay();
+            }
+        });
+
         virgul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -250,7 +336,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //input.setLength(0);
                 //historyStr.setLength(0);
                 clearHistory();
-                clearInput();
+                input = new StringBuilder("0");
                 updateDisplay();
             }
         });
@@ -268,11 +354,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void clearHistory() {
         historyStr.setLength(0);
-        anlik_txt.setText(""); // Clear the history TextView
+        anlik_txt.setText("0"); // Clear the history TextView
     }
 
     private void clearInput() {
         input.setLength(0);
         updateDisplay();
     }
+
+
+
 }
